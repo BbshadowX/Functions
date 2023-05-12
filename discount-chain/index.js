@@ -32,15 +32,16 @@ function discount(name) {
   //create a veriable for subscription and discount that subtracts subdis from subtotal and then takes 10 from that total
   for (const key in name) {
     //create a for statment that goes over keys in name
-    if (name.subscription == true && name.coupon == true) {
+    if (name.subscription && name.coupon) {
       // if both subscription and coupon are true return Your grand total is subcomp
       return `Your grand total is $${subcoup}`;
-    } else if (name.subscription == true) {
+    } else if (name.subscription) {
       // if just subscription is true return subtotal minus subdis
       return `Your grand total is $${subtotal - subdis}`;
-    } else name.coupon == true;
-    // else if coupon is true return subtotal minus 10
-    return `Your grand total is $${subtotal - 10}`;
+    } else {
+      // else if coupon is true return subtotal minus 10
+      return `Your grand total is $${subtotal - 10}`;
+    }
   }
 }
 console.log(discount(timmy));
